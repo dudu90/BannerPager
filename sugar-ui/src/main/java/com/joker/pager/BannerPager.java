@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -240,6 +241,8 @@ public class BannerPager<T> extends RelativeLayout implements ViewPager.OnPageCh
         for (int i = 0; i < count; i++) {
             indicator = new IndicatorView(getContext());
             mIndicatorLayout.addView(indicator);
+            final LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) indicator.getLayoutParams();
+            params.gravity= Gravity.CENTER_VERTICAL;
             indicator.setPagerOptions(mPagerOptions);
         }
         setIndicatorSelected(mViewPager.getCurrentItem());
